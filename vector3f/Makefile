@@ -1,2 +1,2 @@
 vector3f: vector3f.cpp
-	g++ -o $@ $<
+	g++ -O4 -o $@ $<
