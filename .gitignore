@@ -1,7 +1,7 @@
 .*.swp
 *.orig
 *~
-SimpleClass.exe
+*.exe
 cscope.files
 cscope.in.out
 cscope.out
