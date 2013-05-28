@@ -7,5 +7,9 @@ vector3: vector3.cpp Makefile
 vector3gcc: vector3.cpp Makefile
 	g++ -g -o $@ $<
 
+gcc: vector3gcc
+
+llvm: vector3
+
 clean:
 	git clean -X -d -f
