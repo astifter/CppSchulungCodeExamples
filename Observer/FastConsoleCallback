@@ -1,28 +1,14 @@
 #pragma once
 #include "ICallback"
-#include <iostream>
 #include <sstream>
 
 class FastConsoleCallback : public ICallback {
     std::stringstream s;
     int charwritten;
   public:
-    FastConsoleCallback() : charwritten(0) {
-        std::cerr << "Created FastConsoleCallback" << std::endl;
-    }
+    FastConsoleCallback();
 
-    virtual void Callback(const std::string & message) {
-        s << "FastConsoleCallback: " << message << std::endl;
-        charwritten += message.length();
-        if (charwritten > (128*1024))
-        {
-            std::cout << s.str();
-            s.str("");
-            charwritten = 0;
-        }
-    }
+    virtual void Callback(const std::string & message);
 
-    virtual ~FastConsoleCallback() {
-        std::cout << s.str();
-    }
+    virtual ~FastConsoleCallback();
 };
