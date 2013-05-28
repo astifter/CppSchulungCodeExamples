@@ -1,7 +1,7 @@
 #include <iostream>
 #include <exception>
 
-#define _DEBUG
+//#define _DEBUG
 #define _CHECK 0
 
 template<typename T>
@@ -111,7 +111,7 @@ std::ostream& operator<< (std::ostream& other, const vector3<T>& c) {
 #endif
 }
 
-typedef vector3<float> vector3f;
+typedef vector3<double> vector3f;
 
 int main (int argc, char** argv) {
     std::cout << "--- creating v" << std::endl;
@@ -119,15 +119,15 @@ int main (int argc, char** argv) {
     std::cout << "v: " << v << std::endl;
     if (_CHECK) if (v != vector3f(1,2,4)) { throw new std::exception(); }
     std::cout << "--- creating n = v * 8.9" << std::endl;
-    vector3f n = 8.9f * v;
+    vector3f n = 8.9 * v;
     std::cout << "n: " << n << std::endl;
     if (_CHECK) if (n != vector3f(1*8.9,2*8.9,4*8.9)) { throw new std::exception(); }
     std::cout << "--- creating v = (v*2)" << std::endl;
-    v = (v*2.0f);
+    v = (v*2.0);
     std::cout << "v: " << v << std::endl;
     if (_CHECK) if (v != vector3f(2,4,8)) { throw new std::exception(); }
     std::cout << "--- creating v = (2*v)" << std::endl;
-    v = (2.0f*v);
+    v = (2.0*v);
     std::cout << "v: " << v << std::endl;
     if (_CHECK) if (v != vector3f(4,8,16)) { throw new std::exception(); }
     std::cout << "--- multipying v with 2" << std::endl;
@@ -135,14 +135,14 @@ int main (int argc, char** argv) {
     std::cout << "v: " << v << std::endl;
     if (_CHECK) if (v != vector3f(8,16,32)) { throw new std::exception(); }
     std::cout << "--- creating v = (v/2)" << std::endl;
-    v = (v/2.0f);
+    v = (v/2.0);
     std::cout << "v: " << v << std::endl;
     if (_CHECK) if (v != vector3f(4,8,16)) { throw new std::exception(); }
     std::cout << "--- creating v = (2/v)" << std::endl;
-    v = (2.0f/v);
+    v = (2.0/v);
     std::cout << "v: " << v << std::endl;
     if (_CHECK) if (v != vector3f(2,4,8)) { throw new std::exception(); }
-    std::cout << "--- multipying v with 2" << std::endl;
+    std::cout << "--- dividing v with 2" << std::endl;
     v /= 2;
     std::cout << "v: " << v << std::endl;
 }
