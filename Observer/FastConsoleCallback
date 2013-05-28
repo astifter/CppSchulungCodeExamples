@@ -7,7 +7,9 @@ class FastConsoleCallback : public ICallback {
     std::stringstream s;
     int charwritten;
   public:
-    FastConsoleCallback() : charwritten(0) {}
+    FastConsoleCallback() : charwritten(0) {
+        std::cerr << "Created FastConsoleCallback" << std::endl;
+    }
 
     virtual void Callback(const std::string & message) {
         s << "FastConsoleCallback: " << message << std::endl;

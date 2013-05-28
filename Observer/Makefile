@@ -17,7 +17,9 @@ clean:
 	git clean -X -d -f
 
 test: Observer
-	bash -c "time ./$<"
+	bash -c "time ./$< > /dev/null"
+	bash -c "time ./$< -f > /dev/null"
 
 testgcc: Observergcc
-	bash -c "time ./$<"
+	bash -c "time ./$< > /dev/null"
+	bash -c "time ./$< -f > /dev/null"
