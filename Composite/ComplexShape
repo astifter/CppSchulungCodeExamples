@@ -1,0 +1,32 @@
+#pragma once
+#include "Shape"
+#include <vector>
+
+template<typename T>
+class ComplexShape : public Shape<T> {
+    std::vector<Shape<T>*> shapes;
+  public:
+    void addShape(Shape<T>* s) {
+        shapes.push_back(s);
+    }
+
+    T area() {
+        T sumarea = 0;
+        for (int i = 0; i < shapes.size(); i++) {
+            sumarea += shapes[i]->area();
+        }
+        return sumarea;
+    }
+        
+    std::string str() {
+        std::stringstream s;
+        s << "CX(";
+        for (int i = 0; i < shapes.size(); i++) {
+            s << shapes[i]->str();
+            if (i+1 < shapes.size())
+                s << ",";
+        }
+        s << ")";
+        return s.str();
+    }
+};
