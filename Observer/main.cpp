@@ -2,8 +2,7 @@
 #include "ConsoleCallback"
 
 int main ( int argc, char** argv ) {
-    ICallback &cb = *(new ConsoleCallback());  ///;
+    ConsoleCallback cb = ConsoleCallback();
     Generator g = Generator(cb);
     g.generate();
-    delete &cb;
 }

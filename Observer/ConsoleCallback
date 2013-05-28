@@ -3,7 +3,7 @@
 #include <iostream>
 
 class ConsoleCallback : public ICallback {
-
+  public:
     virtual void Callback(const std::string & message) {
         std::cout << "ConsoleCallback: " << message << std::endl;
     }
