@@ -2,6 +2,7 @@
 #include <exception>
 
 #include "Pet"
+#include "Dog"
 
 class Cat : public Pet {
   public:
@@ -9,15 +10,6 @@ class Cat : public Pet {
 
     std::string speak() {
         return "Meow, my name is " + getName() + ".";
-    }
-};
-
-class Dog : public Pet {
-  public:
-    Dog(const std::string & n) : Pet(n) {}
-
-    std::string speak() {
-        return "Woof, me name i' " + getName() + ", woff!";
     }
 };
 

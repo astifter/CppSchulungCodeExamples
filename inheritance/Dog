@@ -1,0 +1,9 @@
+#pragma once
+#include "Pet"
+
+class Dog : public Pet {
+  public:
+    Dog(const std::string & n) : Pet(n) {}
+
+    std::string speak();
+};
