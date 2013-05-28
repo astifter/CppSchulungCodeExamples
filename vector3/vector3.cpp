@@ -45,6 +45,7 @@ class vector3 {
             std::cout << "vector3<T>: entering operator= for " << *this << " with rhs " << rhs << std::endl;
 #endif
             x = rhs.x; y = rhs.y; z = rhs.z;
+            return *this;
         }
 
         bool operator==(const vector3<T> & rhs) {
@@ -145,4 +146,5 @@ int main (int argc, char** argv) {
     std::cout << "--- dividing v with 2" << std::endl;
     v /= 2;
     std::cout << "v: " << v << std::endl;
+    return 0;
 }
