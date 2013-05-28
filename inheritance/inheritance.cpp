@@ -1,17 +1,8 @@
 #include <iostream>
 #include <exception>
 
-#include "Pet"
 #include "Dog"
-
-class Cat : public Pet {
-  public:
-    Cat(const std::string & n) : Pet(n) {}
-
-    std::string speak() {
-        return "Meow, my name is " + getName() + ".";
-    }
-};
+#include "Cat"
 
 class GermanShepard : public Dog {
   public:
