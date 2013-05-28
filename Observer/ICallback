@@ -1,0 +1,9 @@
+#pragma once
+#include <string>
+
+class ICallback {
+  public:
+    virtual void Callback(const std::string & message) = 0;
+
+    virtual ~ICallback () {}
+};

@@ -1,0 +1,12 @@
+#pragma once
+#include "ICallback"
+#include <iostream>
+
+class ConsoleCallback : public ICallback {
+
+    virtual void Callback(const std::string & message) {
+        std::cout << "ConsoleCallback: " << message << std::endl;
+    }
+
+    virtual ~ConsoleCallback() {}
+};

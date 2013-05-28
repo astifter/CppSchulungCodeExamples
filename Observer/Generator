@@ -1,0 +1,10 @@
+#pragma once
+#include "ICallback"
+
+class Generator {
+    ICallback & cb;
+
+  public:
+    Generator(ICallback & cb) : cb(cb) {}
+    void generate(void);
+};
