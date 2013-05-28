@@ -1,0 +1,10 @@
+#include <string>
+
+class Pet {
+    std::string name;
+  public:
+    Pet(const std::string & n) : name(n) {}
+
+    std::string getName();
+    virtual std::string speak() = 0;
+};
