@@ -15,3 +15,9 @@ llvm: Observer
 
 clean:
 	git clean -X -d -f
+
+test: Observer
+	bash -c "time ./$<"
+
+testgcc: Observergcc
+	bash -c "time ./$<"
