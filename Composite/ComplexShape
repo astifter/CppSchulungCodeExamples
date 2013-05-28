@@ -17,7 +17,6 @@ class ComplexShape : public Shape<T> {
         }
         return sumarea;
     }
-        
     std::string str() {
         std::stringstream s;
         s << "CX(";
