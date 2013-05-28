@@ -3,15 +3,7 @@
 
 #include "Dog"
 #include "Cat"
-
-class GermanShepard : public Dog {
-  public:
-    GermanShepard(const std::string & n) : Dog(n) {}
-
-    std::string speak() {
-        return "Woof, mein Name ist " + getName() + ". Jawoll.";
-    }
-};
+#include "GermanShepard"
 
 class StupidPoodle : public Dog {
   public:
