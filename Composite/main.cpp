@@ -12,11 +12,12 @@ shared_ptr<Shape<float> > CreateScene(shared_ptr<ShapeFactory<float> > sf);
 shared_ptr<Shape<float> > CreateScene(shared_ptr<ShapeFactory<float> > sf) {
     shared_ptr<Rectangle<float> > r = sf->CRectangle(5,4);
     shared_ptr<Circle<float> > c = sf->CCircle(5);
-    std::cout << r->str() << ", area: " << r->area() << std::endl;
-    std::cout << c->str() << ", area: " << c->area() << std::endl;
-
     shared_ptr<ComplexShape<float> > cs = sf->CComplexShape();
     cs->addShape(r);
+    cs->addShape(c);
+    cs->addShape(c);
+    cs->addShape(c);
+    cs->addShape(c);
     cs->addShape(c);
     return cs;
 }
