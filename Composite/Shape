@@ -11,6 +11,4 @@ class Shape {
 };
 
 template<typename T>
-Shape<T>::~Shape() { 
-    //std::cout << "~Shape()" << std::endl; 
-}
+Shape<T>::~Shape() {}

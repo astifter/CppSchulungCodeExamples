@@ -6,20 +6,15 @@ class DebugCircle : public Circle<T> {
     
   public:
     DebugCircle(T r) : Circle<T>(r) {
-        std::cout << "DebugCircle()" << std::endl;
+        std::cerr << "DebugCircle(" << r << ")" << std::endl;
     }
     
     T area() {
-        T area = T(3.141592653589793238462643383279502884) * radius * radius;
-        std::cout << "area(): returning " << area;
+        T area = Circle<T>::area();
+        std::cerr << "area(): returning " << area << std::endl;
         return area;
     }
-    std::string str() {
-        std::stringstream s;
-        s << "C(" << radius << ")";
-        return s.str();
-    }
     ~DebugCircle() { 
-        std::cout << "~DebugCircle()" << std::endl; 
+        std::cerr << "~DebugCircle()" << std::endl; 
     }
 };

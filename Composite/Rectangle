@@ -19,5 +19,5 @@ class Rectangle : public Shape<T> {
         s << "R(" << width << "x" << heigth << ")";
         return s.str();
     }
-    ~Rectangle() { std::cout << "~Rectangle()" << std::endl; }
+    ~Rectangle() {}
 };

@@ -30,5 +30,5 @@ class ComplexShape : public Shape<T> {
         s << ")";
         return s.str();
     }
-    ~ComplexShape() { std::cout << "~ComplexShape()" << std::endl; }
+    ~ComplexShape() {}
 };
