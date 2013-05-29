@@ -5,30 +5,35 @@
 #include <tr1/memory>
 #include "ShapeFactory"
 #include "DebugShapeFactory"
+#include "SceneBuilder"
+#include "DefaultSceneBuilder"
+#include "FileSceneBuilder"
 
 using namespace std::tr1;
-shared_ptr<Shape<float> > CreateScene(shared_ptr<ShapeFactory<float> > sf);
-
-shared_ptr<Shape<float> > CreateScene(shared_ptr<ShapeFactory<float> > sf) {
-    shared_ptr<Rectangle<float> > r = sf->CRectangle(5,4);
-    shared_ptr<Circle<float> > c = sf->CCircle(5);
-    shared_ptr<ComplexShape<float> > cs = sf->CComplexShape();
-    cs->addShape(r);
-    cs->addShape(c);
-    cs->addShape(c);
-    cs->addShape(c);
-    cs->addShape(c);
-    cs->addShape(c);
-    return cs;
-}
 
 int main (int argc, char** argv) {
     (void)argc;
     (void)argv;
 
-    shared_ptr<DebugShapeFactory<float> > sf(new DebugShapeFactory<float>());
+    shared_ptr<ShapeFactory<float> > sf(new DefaultShapeFactory<float>());
+    shared_ptr<SceneBuilder> sb(new DefaultSceneBuilder());
 
-    shared_ptr<Shape<float> > cs = CreateScene(sf);
+    for (int i = 1; i < argc; i++) {
+        std::string arg(argv[i]);
+        if (arg == std::string("-d")) {
+            sf = shared_ptr<DebugShapeFactory<float> >(new DebugShapeFactory<float>());
+        }
+        if (arg == std::string("-b")) {
+            if (i+1 >= argc) {
+                std::cerr << "please provide filename" << std::endl;
+                return -1;
+            }   
+            sb = shared_ptr<SceneBuilder>(new FileSceneBuilder(std::string(argv[i+1])));
+            i++;
+        }
+    } 
+
+    shared_ptr<Shape<float> > cs = sb->CreateScene(sf);
 
     std::cout << cs->str() << ", area: " << cs->area() << std::endl;
 }

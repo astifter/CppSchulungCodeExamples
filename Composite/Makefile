@@ -4,10 +4,10 @@ WARN=-Weverything -Wno-c++11-extensions -pedantic
 
 PROJECT=Composite
 
-SOURCES=main.cpp 
-DEPS=$(wildcard *)
+SOURCES=main.cpp SceneBuilder.cpp
+DEPS=$(wildcard *.cpp)
 
-$(PROJECT): $(SOURCES) $(DEPS)
+$(PROJECT): $(DEPS)
 	clang++ $(WARN) $(CRAZY) $(DIAG) -g -o $@ $(SOURCES)
 
 clean:

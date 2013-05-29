@@ -1,0 +1,3 @@
+#include "SceneBuilder"
+
+SceneBuilder::~SceneBuilder() {}
