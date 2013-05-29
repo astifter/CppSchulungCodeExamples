@@ -4,6 +4,9 @@
 #include "ComplexShape"
 
 int main (int argc, char** argv) {
+    (void)argc;
+    (void)argv;
+
     Rectangle<float> r(5,4);
     Circle<float> c(5);
     std::cout << r.str() << ", area: " << r.area() << std::endl;
