@@ -1,6 +1,7 @@
 #pragma once
 #include "Shape"
 #include <sstream>
+#include <iostream>
 
 template<typename T>
 class Rectangle : public Shape<T> {
@@ -18,5 +19,5 @@ class Rectangle : public Shape<T> {
         s << "R(" << width << "x" << heigth << ")";
         return s.str();
     }
-    ~Rectangle() {}
+    ~Rectangle() { std::cout << "~Rectangle()" << std::endl; }
 };

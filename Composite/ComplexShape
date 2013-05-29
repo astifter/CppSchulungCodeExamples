@@ -1,6 +1,7 @@
 #pragma once
 #include "Shape"
 #include <vector>
+#include <iostream>
 
 template<typename T>
 class ComplexShape : public Shape<T> {
@@ -28,4 +29,5 @@ class ComplexShape : public Shape<T> {
         s << ")";
         return s.str();
     }
+    ~ComplexShape() { std::cout << "~ComplexShape()" << std::endl; }
 };

@@ -1,6 +1,7 @@
 #pragma once
 #include "Shape"
 #include <sstream>
+#include <iostream>
 
 template<typename T>
 class Circle : public Shape<T> {
@@ -17,5 +18,5 @@ class Circle : public Shape<T> {
         s << "C(" << radius << ")";
         return s.str();
     }
-    ~Circle() {}
+    ~Circle() { std::cout << "~Circle()" << std::endl; }
 };
