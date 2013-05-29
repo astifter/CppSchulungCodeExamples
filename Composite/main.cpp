@@ -4,15 +4,15 @@
 #include "ComplexShape"
 
 Shape<float> *CreateScene() {
-    Rectangle<float> r(5,4);
-    Circle<float> c(5);
-    std::cout << r.str() << ", area: " << r.area() << std::endl;
-    std::cout << c.str() << ", area: " << c.area() << std::endl;
+    Rectangle<float> *r = new Rectangle<float>(5,4);
+    Circle<float> *c = new Circle<float>(5);
+    std::cout << r->str() << ", area: " << r->area() << std::endl;
+    std::cout << c->str() << ", area: " << c->area() << std::endl;
 
-    ComplexShape<float> cs;
-    cs.addShape(&r);
-    cs.addShape(&c);
-    return &cs;
+    ComplexShape<float> *cs = new ComplexShape<float>();
+    cs->addShape(r);
+    cs->addShape(c);
+    return cs;
 }
 
 int main (int argc, char** argv) {
