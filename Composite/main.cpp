@@ -4,7 +4,7 @@
 #include "ComplexShape"
 #include <tr1/memory>
 #include "ShapeFactory"
-#include "DefaultShapeFactory"
+#include "DebugShapeFactory"
 
 using namespace std::tr1;
 shared_ptr<Shape<float> > CreateScene(shared_ptr<ShapeFactory<float> > sf);
@@ -25,7 +25,7 @@ int main (int argc, char** argv) {
     (void)argc;
     (void)argv;
 
-    shared_ptr<DefaultShapeFactory<float> > sf(new DefaultShapeFactory<float>());
+    shared_ptr<DebugShapeFactory<float> > sf(new DebugShapeFactory<float>());
 
     shared_ptr<Shape<float> > cs = CreateScene(sf);
 

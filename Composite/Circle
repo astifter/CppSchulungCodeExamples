@@ -5,6 +5,7 @@
 
 template<typename T>
 class Circle : public Shape<T> {
+  protected:
     T radius;
     
   public:
@@ -18,5 +19,5 @@ class Circle : public Shape<T> {
         s << "C(" << radius << ")";
         return s.str();
     }
-    ~Circle() { std::cout << "~Circle()" << std::endl; }
+    ~Circle() {}
 };
