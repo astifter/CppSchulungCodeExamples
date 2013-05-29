@@ -3,10 +3,7 @@
 #include <iostream>
 #include "ComplexShape"
 
-int main (int argc, char** argv) {
-    (void)argc;
-    (void)argv;
-
+Shape<float> *CreateScene() {
     Rectangle<float> r(5,4);
     Circle<float> c(5);
     std::cout << r.str() << ", area: " << r.area() << std::endl;
@@ -15,5 +12,14 @@ int main (int argc, char** argv) {
     ComplexShape<float> cs;
     cs.addShape(&r);
     cs.addShape(&c);
-    std::cout << cs.str() << ", area: " << cs.area() << std::endl;
+    return &cs;
+}
+
+int main (int argc, char** argv) {
+    (void)argc;
+    (void)argv;
+
+    Shape<float> *cs = CreateScene();
+
+    std::cout << cs->str() << ", area: " << cs->area() << std::endl;
 }
