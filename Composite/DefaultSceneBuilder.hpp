@@ -1,5 +1,5 @@
 #pragma once
-#include "SceneBuilder"
+#include "SceneBuilder.hpp"
 
 class DefaultSceneBuilder : public SceneBuilder { 
   public:

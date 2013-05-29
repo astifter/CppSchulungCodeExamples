@@ -1,8 +1,8 @@
 #pragma once
-#include "Shape"
 #include <vector>
 #include <iostream>
 #include <tr1/memory>
+#include "Shape.hpp"
 
 template<typename T>
 class ComplexShape : public Shape<T> {

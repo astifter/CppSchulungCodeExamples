@@ -1,6 +1,6 @@
 #pragma once
-#include "ShapeFactory"
 #include "tr1/memory"
+#include "ShapeFactory.hpp"
 
 class SceneBuilder { 
   public:

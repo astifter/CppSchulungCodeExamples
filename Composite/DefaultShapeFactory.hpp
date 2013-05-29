@@ -1,5 +1,5 @@
 #pragma once
-#include "ShapeFactory"
+#include "ShapeFactory.hpp"
 
 template<typename T>
 class DefaultShapeFactory : public ShapeFactory<T> {

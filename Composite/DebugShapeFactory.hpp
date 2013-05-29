@@ -1,6 +1,6 @@
 #pragma once
-#include "DefaultShapeFactory"
-#include "DebugCircle"
+#include "DefaultShapeFactory.hpp"
+#include "DebugCircle.hpp"
 
 template<typename T>
 class DebugShapeFactory : public DefaultShapeFactory<T> {

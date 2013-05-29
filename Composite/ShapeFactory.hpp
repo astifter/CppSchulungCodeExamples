@@ -1,8 +1,8 @@
 #pragma once
 #include <tr1/memory>
-#include "Rectangle"
-#include "Circle"
-#include "ComplexShape"
+#include "Rectangle.hpp"
+#include "Circle.hpp"
+#include "ComplexShape.hpp"
 
 template<typename T>
 class ShapeFactory {

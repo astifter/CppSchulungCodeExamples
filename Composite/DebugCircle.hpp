@@ -1,5 +1,5 @@
 #pragma once
-#include "Circle"
+#include "Circle.hpp"
 
 template<typename T>
 class DebugCircle : public Circle<T> {

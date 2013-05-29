@@ -1,13 +1,13 @@
-#include "Circle"
-#include "Rectangle"
 #include <iostream>
-#include "ComplexShape"
 #include <tr1/memory>
-#include "ShapeFactory"
-#include "DebugShapeFactory"
-#include "SceneBuilder"
-#include "DefaultSceneBuilder"
-#include "FileSceneBuilder"
+#include "Circle.hpp"
+#include "Rectangle.hpp"
+#include "ComplexShape.hpp"
+#include "ShapeFactory.hpp"
+#include "DebugShapeFactory.hpp"
+#include "SceneBuilder.hpp"
+#include "DefaultSceneBuilder.hpp"
+#include "FileSceneBuilder.hpp"
 
 using namespace std::tr1;
 

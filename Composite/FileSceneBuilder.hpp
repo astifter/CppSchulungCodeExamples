@@ -1,6 +1,6 @@
 #pragma once
-#include "SceneBuilder"
 #include <fstream>
+#include "SceneBuilder.hpp"
 
 class FileSceneBuilder : public SceneBuilder { 
     std::string filename;

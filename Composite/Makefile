@@ -5,7 +5,7 @@ WARN=-Weverything -Wno-c++11-extensions -pedantic
 PROJECT=Composite
 
 SOURCES=main.cpp SceneBuilder.cpp
-DEPS=$(wildcard *.cpp)
+DEPS=$(wildcard *.cpp) $(wildcard *.hpp) Makefile
 
 $(PROJECT): $(DEPS)
 	clang++ $(WARN) $(CRAZY) $(DIAG) -g -o $@ $(SOURCES)

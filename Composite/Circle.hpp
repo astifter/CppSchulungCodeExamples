@@ -1,7 +1,7 @@
 #pragma once
-#include "Shape"
 #include <sstream>
 #include <iostream>
+#include "Shape.hpp"
 
 template<typename T>
 class Circle : public Shape<T> {

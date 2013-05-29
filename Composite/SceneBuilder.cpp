@@ -1,3 +1,3 @@
-#include "SceneBuilder"
+#include "SceneBuilder.hpp"
 
 SceneBuilder::~SceneBuilder() {}
