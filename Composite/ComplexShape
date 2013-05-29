@@ -4,13 +4,11 @@
 #include <iostream>
 #include <tr1/memory>
 
-using namespace std::tr1;
-
 template<typename T>
 class ComplexShape : public Shape<T> {
-    std::vector<shared_ptr<Shape<T> > > shapes;
+    std::vector<std::tr1::shared_ptr<Shape<T> > > shapes;
   public:
-    void addShape(shared_ptr<Shape<T> > s) {
+    void addShape(std::tr1::shared_ptr<Shape<T> > s) {
         shapes.push_back(s);
     }
 
