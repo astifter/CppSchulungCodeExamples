@@ -2,16 +2,17 @@
 #include <sstream>
 #include <iostream>
 #include "Shape.hpp"
+#include "Visitor.hpp"
 
-template<typename T>
-class Rectangle : public Shape<T> {
-    T width;
-    T heigth;
+class Rectangle : public Shape {
+  public:
+    float width;
+    float heigth;
     
   public:
-    Rectangle(T w, T h) : width(w), heigth(h) {}
+    Rectangle(float w, float h) : width(w), heigth(h) {}
     
-    T area() {
+    float area() {
         return width*heigth;
     }
     std::string str() {
@@ -19,5 +20,9 @@ class Rectangle : public Shape<T> {
         s << "R(" << width << "x" << heigth << ")";
         return s.str();
     }
+    void accept(Visitor &v) {
+        v.visit(*this);
+    }
+
     ~Rectangle() {}
 };

@@ -2,10 +2,9 @@
 #include "DefaultShapeFactory.hpp"
 #include "DebugCircle.hpp"
 
-template<typename T>
-class DebugShapeFactory : public DefaultShapeFactory<T> {
+class DebugShapeFactory : public DefaultShapeFactory {
   public:
-    std::tr1::shared_ptr<Circle<T> > CCircle(T r) {
-        return std::tr1::shared_ptr<Circle<T> >(new DebugCircle<T>(r));
+    std::tr1::shared_ptr<Circle> CCircle(float r) {
+        return std::tr1::shared_ptr<Circle>(new DebugCircle(r));
     }
 };

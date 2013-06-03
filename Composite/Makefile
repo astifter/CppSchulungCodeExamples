@@ -4,7 +4,7 @@ WARN=-Weverything -Wno-c++11-extensions -Wno-weak-vtables -pedantic
 
 PROJECT=Composite
 
-SOURCES=main.cpp SceneBuilder.cpp
+SOURCES=$(wildcard *.cpp)
 DEPS=$(wildcard *.cpp) $(wildcard *.hpp) Makefile
 
 $(PROJECT): $(DEPS)

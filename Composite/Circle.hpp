@@ -2,22 +2,26 @@
 #include <sstream>
 #include <iostream>
 #include "Shape.hpp"
+#include "Visitor.hpp"
 
-template<typename T>
-class Circle : public Shape<T> {
-  protected:
-    T radius;
+class Circle : public Shape {
+  public:
+    float radius;
     
   public:
-    Circle(T r) : radius(r) {}
+    Circle(float r) : radius(r) {}
     
-    T area() {
-        return T(3.141592653589793238462643383279502884) * radius * radius;
+    float area() {
+        return float(3.141592653589793238462643383279502884) * radius * radius;
     }
     std::string str() {
         std::stringstream s;
         s << "C(" << radius << ")";
         return s.str();
     }
+    void accept(Visitor &v) {
+        v.visit(*this);
+    }
+
     ~Circle() {}
 };

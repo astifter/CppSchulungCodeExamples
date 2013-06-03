@@ -7,9 +7,9 @@ class FileSceneBuilder : public SceneBuilder {
     std::string filename;
   public:
     FileSceneBuilder(std::string f) : filename(f){}
-    std::tr1::shared_ptr<Shape<float> > CreateScene(std::tr1::shared_ptr<ShapeFactory<float> > sf) {
+    std::tr1::shared_ptr<Shape> CreateScene(std::tr1::shared_ptr<ShapeFactory> sf) {
         std::fstream fs(filename.c_str()); 
-        std::vector<std::tr1::shared_ptr<Shape<float> > > v;
+        std::vector<std::tr1::shared_ptr<Shape> > v;
         unsigned int line = 0; 
         while(!fs.eof()) {
             std::string type;
@@ -34,7 +34,7 @@ class FileSceneBuilder : public SceneBuilder {
                     msg << "can not process " << num << " shapes in " << filename << ", line " << line;
                     throw std::invalid_argument::invalid_argument(msg.str());
                 }
-                std::tr1::shared_ptr<ComplexShape<float> > cs = sf->CComplexShape();
+                std::tr1::shared_ptr<ComplexShape> cs = sf->CComplexShape();
                 for (size_t i = v.size()-num; i < oldvsize; i++) {
                     cs->addShape(v[i]);
                 }

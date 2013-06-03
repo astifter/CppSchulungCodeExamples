@@ -1,16 +1,15 @@
 #pragma once
 #include "ShapeFactory.hpp"
 
-template<typename T>
-class DefaultShapeFactory : public ShapeFactory<T> {
+class DefaultShapeFactory : public ShapeFactory {
   public:
-    std::tr1::shared_ptr<Rectangle<T> > CRectangle(T w, T h) {
-        return std::tr1::shared_ptr<Rectangle<T> >(new Rectangle<T>(w,h));
+    std::tr1::shared_ptr<Rectangle> CRectangle(float w, float h) {
+        return std::tr1::shared_ptr<Rectangle>(new Rectangle(w,h));
     }
-    std::tr1::shared_ptr<Circle<T> > CCircle(T r) {
-        return std::tr1::shared_ptr<Circle<T> >(new Circle<T>(r));
+    std::tr1::shared_ptr<Circle> CCircle(float r) {
+        return std::tr1::shared_ptr<Circle>(new Circle(r));
     }
-    std::tr1::shared_ptr<ComplexShape<T> > CComplexShape() {
-        return std::tr1::shared_ptr<ComplexShape<T> >(new ComplexShape<T>());
+    std::tr1::shared_ptr<ComplexShape> CComplexShape() {
+        return std::tr1::shared_ptr<ComplexShape>(new ComplexShape());
     }
 };

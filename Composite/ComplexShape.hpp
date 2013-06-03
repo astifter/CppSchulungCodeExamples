@@ -3,17 +3,19 @@
 #include <iostream>
 #include <tr1/memory>
 #include "Shape.hpp"
+#include "Visitor.hpp"
 
-template<typename T>
-class ComplexShape : public Shape<T> {
-    std::vector<std::tr1::shared_ptr<Shape<T> > > shapes;
+class ComplexShape : public Shape {
   public:
-    void addShape(std::tr1::shared_ptr<Shape<T> > s) {
+    std::vector<std::tr1::shared_ptr<Shape > > shapes;
+
+  public:
+    void addShape(std::tr1::shared_ptr<Shape > s) {
         shapes.push_back(s);
     }
 
-    T area() {
-        T sumarea = T(0);
+    float area() {
+        float sumarea = float(0);
         for (size_t i = 0; i < shapes.size(); i++) {
             sumarea += shapes[i]->area();
         }
@@ -30,5 +32,9 @@ class ComplexShape : public Shape<T> {
         s << ")";
         return s.str();
     }
+    void accept(Visitor &v) {
+        v.visit(*this);
+    }
+
     ~ComplexShape() {}
 };

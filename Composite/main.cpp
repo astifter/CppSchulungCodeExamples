@@ -8,6 +8,7 @@
 #include "SceneBuilder.hpp"
 #include "DefaultSceneBuilder.hpp"
 #include "FileSceneBuilder.hpp"
+#include "PrintVisitor.hpp"
 
 using namespace std::tr1;
 
@@ -15,13 +16,13 @@ int main (int argc, char** argv) {
     (void)argc;
     (void)argv;
 
-    shared_ptr<ShapeFactory<float> > sf(new DefaultShapeFactory<float>());
+    shared_ptr<ShapeFactory> sf(new DefaultShapeFactory());
     shared_ptr<SceneBuilder> sb(new DefaultSceneBuilder());
 
     for (int i = 1; i < argc; i++) {
         std::string arg(argv[i]);
         if (arg == std::string("-d")) {
-            sf = shared_ptr<DebugShapeFactory<float> >(new DebugShapeFactory<float>());
+            sf = shared_ptr<DebugShapeFactory>(new DebugShapeFactory());
         }
         if (arg == std::string("-b")) {
             if (i+1 >= argc) {
@@ -33,7 +34,9 @@ int main (int argc, char** argv) {
         }
     } 
 
-    shared_ptr<Shape<float> > cs = sb->CreateScene(sf);
-
+    shared_ptr<Shape> cs = sb->CreateScene(sf);
     std::cout << cs->str() << ", area: " << cs->area() << std::endl;
+
+    PrintVisitor pv;
+    cs->accept(pv);
 }

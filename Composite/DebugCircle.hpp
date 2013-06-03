@@ -1,16 +1,15 @@
 #pragma once
 #include "Circle.hpp"
 
-template<typename T>
-class DebugCircle : public Circle<T> {
+class DebugCircle : public Circle {
     
   public:
-    DebugCircle(T r) : Circle<T>(r) {
+    DebugCircle(float r) : Circle(r) {
         std::cerr << "DebugCircle(" << r << ")" << std::endl;
     }
     
-    T area() {
-        T area = Circle<T>::area();
+    float area() {
+        float area = Circle::area();
         std::cerr << "area(): returning " << area << std::endl;
         return area;
     }
